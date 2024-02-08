@@ -41,13 +41,24 @@ units = {
 
 ### Complete functions ###
 class SandwichMachine:
+
     def __init__(self, machine_resources):
         self.machine_resources = machine_resources
 
     def check_resources(self, ingredients):
-
+        for ingredient, amount_needed in ingredients.items():
+            if self.machine_resources[ingredient] < amount_needed:
+                print(f"Sorry there is not enough {ingredient}.")
+                return False
+        return True
 
     def process_coins(self):
+        print("Please insert coins.")
+        dollars = int(input("How many large dollars?: ")) * 1
+        half_dol = int(input("How many half dollars?: ")) * 0.5
+        quart = int(input("How many quarters?: ")) * 0.25
+        nick = int(input("How many nickels?: ")) * 0.05
+        return dollars + half_dol + quart + nick
 
 
     def transaction_result(self, coins, cost):
