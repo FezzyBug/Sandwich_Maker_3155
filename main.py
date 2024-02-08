@@ -64,9 +64,14 @@ while True:
     if choice == "off":
         break
     elif choice == "report":
-
+        for ingredient, amount in machine_runner.machine_resources.items():
+            print(f"{ingredient.capitalize()}: {amount} {units[ingredient]}")
     elif choice in ["small", "medium", "large"]:
-
+        if machine_runner.check_resources(recipes[choice]["ingredients"]):
+            print(f"The cost is ${recipes[choice]['cost']}.")
+            coins_inserted = machine_runner.process_coins()
+            if machine_runner.transaction_result(coins_inserted, recipes[choice]["cost"]):
+                machine_runner.make_sandwich(choice, recipes[choice]["ingredients"])
     else:
         print("Invalid selection made.")
 
