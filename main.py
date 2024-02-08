@@ -41,7 +41,6 @@ units = {
 
 ### Complete functions ###
 class SandwichMachine:
-
     def __init__(self, machine_resources):
         self.machine_resources = machine_resources
 
@@ -60,12 +59,20 @@ class SandwichMachine:
         nick = int(input("How many nickels?: ")) * 0.05
         return dollars + half_dol + quart + nick
 
-
     def transaction_result(self, coins, cost):
-
+        if coins >= cost:
+            change = round(coins - cost, 2)
+            if change >= 0:
+                print(f"Here is ${change} in change.")
+            return True
+        else:
+            print("Sorry, that's not enough money. Money refunded.")
+            return False
 
     def make_sandwich(self, sandwich_size, order_ingredients):
-
+        for ingredient, amount in order_ingredients.items():
+            self.machine_resources[ingredient] -= amount
+        print(f"{sandwich_size} sandwich is ready. Bon appetit!")
 
 # Main loop
 while True:
