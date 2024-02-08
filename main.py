@@ -74,7 +74,7 @@ class SandwichMachine:
             self.machine_resources[ingredient] -= amount
         print(f"{sandwich_size} sandwich is ready. Bon appetit!")
 
-# Main loop
+# Main loop - final changes required for commit to git
 while True:
     machine_runner = SandwichMachine(resources)
     choice = input("What would you like? (small/ medium/ large/ off/ report):").lower().strip()
