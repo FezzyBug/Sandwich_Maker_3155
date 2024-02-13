@@ -2,7 +2,7 @@ import sandwich_maker
 import data
 import cashier
 
-### Data ###
+# Data Initialized based off of data.py #
 recipes = data.recipes
 resources = data.resources
 units = data.units
